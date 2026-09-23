@@ -58,6 +58,7 @@ public class Practice {
      * @throws NullPointerException if ages is null
      */
     public static Set<String> adults(Map<String, Integer> ages) {
+        if(ages == null) throw new NullPointerException();
         Set<String> result = new HashSet<>();
         for(String name : ages.keySet()){
             if(ages.get(name) >= 18) result.add(name);
@@ -73,7 +74,14 @@ public class Practice {
      * @throws IllegalArgumentException if head is null
      */
     public static int biggestNumber(ListNode<Integer> head) {
-        return 0;
+        if(head == null) throw new IllegalArgumentException();
+        int result = head.data;
+        ListNode<Integer> current = head;
+        while(current != null) {
+            if(current.data > result) result = current.data;
+            current = current.next;
+        }
+        return result;
     }
 
     /**
